@@ -17,14 +17,14 @@ export default function handler(req: VercelRequest, res: VercelResponse) {
 
     try {
         // req.body deve ser o JSON enviado (Vercel parseia automaticamente se Content-Type: application/json)
-        const { email, password } = req.body || {}
+        const { email, senha } = req.body || {}
 
-        if (!email || !password) {
+        if (!email || !senha) {
             return res.status(400).json({ success: false, message: 'Email e senha são obrigatórios' })
         }
 
         // regra de validação simples: "admin" + "admin" => erro (simulação)
-        if (String(email).toLowerCase() === 'admin' && String(password) === 'admin') {
+        if (String(email).toLowerCase() === 'admin' && String(senha) === 'admin') {
             return res.status(401).json({ success: false, message: 'Credenciais inválidas' })
         }
 
