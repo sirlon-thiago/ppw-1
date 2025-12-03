@@ -72,6 +72,7 @@ Cria um novo usuário fictício.
 POST https://ppw-1-tads.vercel.app/api/register
 ```
 
+---
 
 ### 🧾 **Parâmetros esperados (body JSON)**
 
@@ -84,6 +85,8 @@ POST https://ppw-1-tads.vercel.app/api/register
 }
 ```
 
+---
+
 ### ✔️ **Validações**
 
 O endpoint verifica:
@@ -93,6 +96,8 @@ O endpoint verifica:
 3. **Se a senha foi informada**
 4. **Se a senha e a confirmação de senha são idênticas**
 
+---
+
 ### 🟢 **Resposta de sucesso**
 
 ```json
@@ -101,6 +106,8 @@ O endpoint verifica:
   "message": "Usuário registrado com sucesso!"
 }
 ```
+
+---
 
 ### 🔴 **Respostas de erro**
 
@@ -276,3 +283,54 @@ POST https://ppw-1-tads.vercel.app/api/products
 
 ---
 
+## 🧩 PUT /api/user ou PATCH /api/user
+
+Atualiza informações básicas do usuário (nome e e-mail).  
+Realiza validação simples do e-mail antes de confirmar a atualização.
+
+---
+
+### 📌 URL
+```
+PUT https://ppw-1-tads.vercel.app/api/user
+PATCH https://ppw-1-tads.vercel.app/api/user
+```
+
+---
+
+### 📥 Corpo da Requisição (JSON)
+
+```json
+{
+  "nome": "João da Silva",
+  "email": "joao@example.com"
+}
+```
+
+### 🔎 Regras de Validação
+
+- nome: obrigatório
+- email: obrigatório e deve estar em um formato válido (algo@dominio.com)
+
+---
+
+### 📤 Respostas
+
+#### ✅ Sucesso (200)
+
+```json
+{
+"sucesso": true,
+"mensagem": "Dados alterados com sucesso"
+}
+```
+
+---
+
+#### ❌ Falha na Validação (400)
+```json
+{
+"sucesso": false,
+"mensagem": "E-mail inválido"
+}
+```
