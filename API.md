@@ -78,10 +78,10 @@ POST https://ppw-1-tads.vercel.app/api/register
 
 ```json
 {
-  "name": "Nome completo do usuário",
+  "nome": "Nome completo do usuário",
   "email": "usuario@example.com",
-  "password": "senha123",
-  "confirmPassword": "senha123"
+  "senha": "senha123",
+  "confirmacaoSenha": "senha123"
 }
 ```
 
